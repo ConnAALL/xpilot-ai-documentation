@@ -1,1 +1,18 @@
-site_name: My Docs
+site_name: XPilot-AI Documentation
+
+# Navigation structure - this controls the menu bar
+nav:
+  - Home: index.md
+  - 📚 Function Library: docs-library.md
+  - 🔧 Installation: docs-install.md
+  - 🚀 Examples: docs-examples.md
+  - 🔄 Versions: docs-versions.md
+  - ℹ️ About: docs-about.md
+
+# Theme configuration
+theme:
+  name: mkdocs
+  
+# Site information
+site_description: Complete documentation for XPilot-AI bot development
+site_author: XPilot-AI Team
