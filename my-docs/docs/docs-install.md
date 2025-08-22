@@ -14,18 +14,6 @@ chmod +x xpilot-ai-1.1-linux.sh
 ./xpilot-ai-1.1-linux.sh
 ```
 
-### Xpilot-ng-AI 0.9 (Ubuntu 12.04)
-
-To install **Xpilot-ng-AI 0.9** from source (specifically on Ubuntu 12.04):
-
-Download and run this script:
-
-```bash
-wget http://xpilot-ai.org/downloads/xpilot-ng-ai-0.9/xpilot-ng-ai-0.9.sh
-chmod +x xpilot-ng-ai-0.9.sh
-./xpilot-ng-ai-0.9.sh
-```
-
 ## Mac
 
 ### macOS Sierra Installation
