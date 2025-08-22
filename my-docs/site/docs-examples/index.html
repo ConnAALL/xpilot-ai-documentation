@@ -8,7 +8,7 @@
         <meta name="author" content="XPilot-AI Team">
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>About - XPilot-AI Documentation</title>
+        <title>Examples - XPilot-AI Documentation</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -41,13 +41,13 @@
                                 <a href="../docs-install/" class="nav-link">Installation</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../docs-examples/" class="nav-link">Examples</a>
+                                <a href="./" class="nav-link active" aria-current="page">Examples</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../docs-versions/" class="nav-link">Versions</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">About</a>
+                                <a href="../docs-about/" class="nav-link">About</a>
                             </li>
                         </ul>
 
@@ -58,12 +58,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../docs-versions/" class="nav-link">
+                                <a rel="prev" href="../docs-install/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../docs-versions/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -85,8 +85,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#about-xpilot" class="nav-link">About XPilot</a>
+            <li class="nav-item" data-bs-level="1"><a href="#xpilot-ai-examples" class="nav-link">XPilot-AI Examples</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#programming-languages" class="nav-link">Programming Languages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -94,22 +98,82 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="about-xpilot">About XPilot</h1>
-<h3 id="links">Links</h3>
-<p><strong><a href="http://xpilot.org">XPilot.org</a></strong> - The classic XPilot site.</p>
-<p><strong><a href="http://xpilot.sourceforge.net">xpilot.sourceforge.net</a></strong> - Home of XPilot NG, which adds polygonal map support and the SDL client.</p>
-<p><strong><a href="http://buckosoft.com">BuckoSoft</a></strong> - Home of <strong>Dick Balaska</strong>, XPilotNT - The Windows port of original XPilot, XPilot5 - A refactoring of XPilot written in C++, and this very helpful keyboard map from <strong>Klaus Kühnl</strong>.</p>
-<p><strong><a href="http://j-a-r-n-o.nl">j-a-r-n-o.nl</a></strong> - An extremely helpful site by <strong>J-a-r-n-o</strong>, complete with newbie guide and shipshape catalog.</p>
-<p><strong>Xpilot-AI Google Code Page</strong> - Work of the <strong>Xpilot-AI 2011 Team</strong>, who wrote up this informative wiki.</p>
-<h3 id="creators">Creators</h3>
-<p><strong>XPilot</strong>, a multiplayer space combat game, was first written in <strong>1991</strong> by <strong>Bjørn Stabell</strong> and <strong>Ken Schouten</strong>, and has since branched into several different versions.</p>
-<p><strong>Xpilot-AI</strong> is a project under the direction of <strong>Professor Gary Parker</strong> at <strong>Connecticut College</strong>.</p>
-<p>It was originally written by <strong>Matt Parker</strong> and later improved by <strong>David Arroyo '10</strong>.</p>
-<p>A significant upgrade to the system, resulting in <code>Xpilot-AI 0.9a</code> was made by the <strong>HFOSS Xpilot-AI 2011 Team</strong> consisting of:
-- <strong>Evan Gray '13</strong>
-- <strong>Jim O'Connor '13</strong> 
-- <strong>Jesse Newbold '13</strong></p>
-<p><code>Xpilot-AI 1.0</code> and <code>Xpilot-ng-AI 0.9</code> were completed by <strong>Evan Gray '13</strong> and <strong>Justin Anderson '14</strong>, the <strong>Xpilot-AI 2012 Team</strong>.</p></div>
+<h1 id="xpilot-ai-examples">XPilot-AI Examples</h1>
+<h3 id="general">General</h3>
+<p><strong>Xpilot-AI</strong> works by allowing a programmer to easily inject code within the framework of the game during the same time that the system would read user input and draw the current frame. We refer to this code that will be injected as the <strong>AI loop</strong>. There are many functions included in Xpilot-AI which allow a programmer to effortlessly read information from the XPilot client and send instructions to the ship in the same way a player could see the display and use the keyboard and mouse.</p>
+<blockquote>
+<p><strong>Important note:</strong> If the Xpilot-AI libraries are not installed to your library path, then you will need to set the library path to where they are located.</p>
+</blockquote>
+<p>For example, in <strong>Ubuntu</strong>, if the bots are located in the same folder as the library <code>.so</code>, as is the default method, the following line should be run once, before executing the bot:</p>
+<pre><code class="language-bash">export LD_LIBRARY_PATH=.
+</code></pre>
+<p>If you get errors about libraries, try that first!</p>
+<h3 id="server">Server</h3>
+<p>The various XPilot clients and servers are, on the whole, compatible with one another. Our custom server adds <code>switchBase</code>, which is helpful for artificial learning systems.</p>
+<p>We are working to bring our modified server code up to date, for now you can use the previous server.</p>
+<p>This is how to run a basic server:</p>
+<pre><code class="language-bash">./xpilots -map maps/lifeless.xp -noQuit -switchBase 1
+</code></pre>
+<h2 id="programming-languages">Programming Languages</h2>
+<h3 id="c">C</h3>
+<p><strong>Spinner.c</strong></p>
+<pre><code class="language-c">#include &quot;cAI.h&quot; //This allows us to use the AI functions
+AI_loop() { //This must be the name of the AI loop in C
+  turnLeft(1); //Bot code goes here
+}
+int main(int argc, char *argv[]) { //Called when bot is run
+  return start(argc, argv); //Starts Xpilot-AI
+}
+</code></pre>
+<p><strong>To compile:</strong></p>
+<pre><code class="language-bash">gcc Spinner.c libcAI.so -o Spinner
+</code></pre>
+<p><strong>To run:</strong></p>
+<pre><code class="language-bash">./Spinner
+</code></pre>
+<h3 id="java">Java</h3>
+<p><strong>Spinner.java</strong></p>
+<pre><code class="language-java">class Spinner extends javaAI { //&quot;extends&quot; allows us to use the AI functions
+        @Override //Tells Java to override the existing AI_loop
+        public void AI_loop() { //This must be the name of the AI loop in Java
+                turnLeft(1); //Bot code goes here
+        }
+        public Spinner(String args[]) { //Required for superclass javaAI
+                super(args);
+        }
+        public static void main(String args[]) { //Called when bot is run
+                String[] new_args = {&quot;-name&quot;,&quot;Spinner&quot;}; //Sets args
+                Spinner spinner = new Spinner(new_args); //Starts Xpilot-AI
+        }
+}
+</code></pre>
+<p><strong>To compile:</strong></p>
+<pre><code class="language-bash">javac Spinner.java
+</code></pre>
+<p><strong>To run:</strong></p>
+<pre><code class="language-bash">java Spinner
+</code></pre>
+<h3 id="python">Python</h3>
+<p><strong>Spinner.py</strong></p>
+<pre><code class="language-python">import libpyAI as ai #This allows us to use the AI functions
+def AI_loop(): #Our method to be called as AI_loop, can be anything
+  ai.turnLeft(1) #Bot code goes here
+ai.start(AI_loop,[&quot;-name&quot;,&quot;Spinner&quot;]) #Starts Xpilot-AI
+</code></pre>
+<p><strong>No compilation necessary</strong></p>
+<p><strong>To run:</strong></p>
+<pre><code class="language-bash">python3 Spinner.py
+</code></pre>
+<h3 id="racket">Racket</h3>
+<p><strong>Spinner.rkt</strong></p>
+<pre><code class="language-racket">#lang racket
+(require &quot;rktAI.rkt&quot;) ;This allows us to use the AI functions
+(start (lambda () (turnLeft 1)) '(&quot;-name&quot; &quot;Spinner&quot;)) ;Starts Xpilot-AI
+</code></pre>
+<p><strong>No compilation necessary</strong></p>
+<p><strong>To run:</strong></p>
+<pre><code class="language-bash">racket Spinner.rkt
+</code></pre></div>
             </div>
         </div>
 
