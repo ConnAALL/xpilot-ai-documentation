@@ -3,11 +3,11 @@ site_name: XPilot-AI Documentation
 # Navigation structure - this controls the menu bar
 nav:
   - Home: index.md
-  - 📚 Function Library: docs-library.md
-  - 🔧 Installation: docs-install.md
-  - 🚀 Examples: docs-examples.md
-  - 🔄 Versions: docs-versions.md
-  - ℹ️ About: docs-about.md
+  - Function Library: docs-library.md
+  - Installation: docs-install.md
+  - Examples: docs-examples.md
+  - Versions: docs-versions.md
+  - About: docs-about.md
 
 # Theme configuration
 theme:
